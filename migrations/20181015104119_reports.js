@@ -7,7 +7,7 @@ exports.up = function (knex, Promise) {
     table.timestamp(`reported_at`).notNullable().defaultTo(knex.fn.now())
     table.string(`location`)
     table.integer(`cryptid_id`)
-    table.foreign(`cryptid_id`).references(`cryptids.id`)
+    table.foreign(`cryptid_id`).references(`cryptids.id`).onDelete(`CASCADE`)
   })
 };
 
